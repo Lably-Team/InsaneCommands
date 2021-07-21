@@ -16,22 +16,28 @@ public class CommandBroadcast implements CommandExecutor {
   		this.plugin = plugin;
   }
 	
-	public boolean onCommand(CommandSender sender, Command command, String label, String[] args){
-    if(sender.hasPermission("ic.broadcast") && command.getName().equalsIgnoreCase("bc")){
-    	if(args.length == 0){
-    	  FileConfiguration messages = plugin.getMessages();
-    	  sender.sendMessage(ChatColor.translateAlternateColorCodes('&', messages.getString("Messages.invalid_broadcast")));
-    	  return true;
-    	} 
-    	FileConfiguration messages = plugin.getMessages();
-    	StringBuilder str = new StringBuilder();
-      	for (int i = 0; i < args.length; i++)
-        str.append(String.valueOf(args[i]) + " "); 
-      	String s = str.toString();
-      	String coloredString = ChatColor.translateAlternateColorCodes('&', s);
-      	String prefix = ChatColor.translateAlternateColorCodes('&', messages.getString("Messages.broadcast"));
-      	Bukkit.broadcast(String.valueOf(prefix) + coloredString, s);
-    	} 
-    return true;
+	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+		FileConfiguration messages = plugin.getMessages();
+
+		if(!sender.hasPermission("ic.broadcast")) {
+			sender.sendMessage(messages.getString("Messages.no_permission"));
+			return true;
+		}
+
+		if (!(args.length > 0)) {
+			sender.sendMessage(ChatColor.translateAlternateColorCodes('&', messages.getString("Messages.invalid_broadcast")));
+			return true;
+		}
+
+		StringBuilder stringBuilder = new StringBuilder();
+		for (int i = 0; i < args.length; i++) {
+			stringBuilder.append(args[i]).append(' ');
+		}
+
+		String text = stringBuilder.toString();
+		String coloredString = ChatColor.translateAlternateColorCodes('&', text);
+		String prefix = ChatColor.translateAlternateColorCodes('&', messages.getString("Messages.broadcast"));
+		Bukkit.broadcastMessage(prefix + coloredString);
+		return true;
 	}
 }
