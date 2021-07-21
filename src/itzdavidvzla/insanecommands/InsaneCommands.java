@@ -41,7 +41,7 @@ public class InsaneCommands extends JavaPlugin{
 	public String name = pdffile.getName();
 	public String version = pdffile.getVersion();
   
-  	public void onEnable(){
+  	public void onEnable(){ //sus
   		Bukkit.getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', "&8[&cInsane&4Commands&8] &7Plugin &aactivado&8."));
   		registerCommands();
   		registerMessages();
