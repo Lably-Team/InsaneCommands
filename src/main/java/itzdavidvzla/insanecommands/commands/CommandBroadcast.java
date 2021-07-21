@@ -13,7 +13,7 @@ import itzdavidvzla.insanecommands.InsaneCommands;
 
 public class CommandBroadcast implements CommandExecutor {
 	
-	private InsaneCommands plugin;
+	private final InsaneCommands plugin;
   	public CommandBroadcast(InsaneCommands plugin){
   		this.plugin = plugin;
   }
