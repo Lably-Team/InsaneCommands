@@ -26,7 +26,7 @@ public class CommandMain implements CommandExecutor{
 			return false;
 		} 
 		
-		Player player = (Player) sender;
+		Player player = (Player) sender; //jonakulasos uwu
 		
 		if(player.hasPermission("ic.help")){
 			if(args.length > 0){
