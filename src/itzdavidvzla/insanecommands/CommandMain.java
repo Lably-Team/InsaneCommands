@@ -13,7 +13,8 @@ import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.craftbukkit.v1_8_R3.entity.CraftPlayer;
 import org.bukkit.entity.Player;
 
-public class CommandMain implements CommandExecutor{
+public class CommandMain implements CommandExecutor {
+
 	private InsaneCommands plugin;
   
 	public CommandMain(InsaneCommands plugin){
@@ -35,7 +36,6 @@ public class CommandMain implements CommandExecutor{
 		}
 
 		if(!(args.length > 0)) {
-			FileConfiguration messages = plugin.getMessages();
 			player.sendMessage(ChatColor.translateAlternateColorCodes('&', messages.getString("Messages.help_command")));
 			player.playSound(player.getLocation(), Sound.CLICK, 1.0F, 1.0F);
 			return true;
@@ -54,7 +54,7 @@ public class CommandMain implements CommandExecutor{
 			plugin.reloadMessages();
 			player.sendMessage(ChatColor.translateAlternateColorCodes('&', messages.getString("Messages.plugin-reload")));
 			player.playSound(player.getLocation(), Sound.LEVEL_UP, 10.0F, 10.0F);
-			PacketPlayOutTitle title = new PacketPlayOutTitle(PacketPlayOutTitle.EnumTitleAction.TITLE, IChatBaseComponent.ChatSerializer.a("{\"text\":\"§cPlugin Reloaded!\"}"), 100, 20, 20);
+			PacketPlayOutTitle title = new PacketPlayOutTitle(PacketPlayOutTitle.EnumTitleAction.TITLE, IChatBaseComponent.ChatSerializer.a("{\"text\":\"ï¿½cPlugin Reloaded!\"}"), 100, 20, 20);
 			(((CraftPlayer)player).getHandle()).playerConnection.sendPacket(title);
 			return true;
 		
