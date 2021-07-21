@@ -1,0 +1,27 @@
+main: itzdavidvzla.insanecommands.InsaneCommands
+version: 1.0
+name: InsaneCommands
+
+commands:
+  ic:
+    description: Comando de Administrador de InsaneCommands
+  bc:
+    description: Comando de Anuncios de InsaneCommands
+  fly:
+    description: Comando de Vuelo de InsaneCommands
+  feed:
+    description: Comando de Alimentacion de InsaneCommands
+  heal:
+    description: Comando de Curacion de InsaneCommands
+  gmc:
+    description: Comando de Modo de Juego de InsaneCommands
+  gms:
+    description: Comando de Modo de Juego de InsaneCommands
+  gme:
+    description: Comando de Modo de Juego de InsaneCommands
+  gma:
+    description: Comando de Modo de Juego de InsaneCommands
+  spawn:
+    description: Comando de Spawn de InsaneCommands
+  setspawn:
+    description: Comando de SetSpawn de InsaneCommands
