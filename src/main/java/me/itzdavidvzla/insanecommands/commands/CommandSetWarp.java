@@ -1,4 +1,4 @@
-package itzdavidvzla.insanecommands.commands;
+package me.itzdavidvzla.insanecommands.commands;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -6,27 +6,26 @@ import org.bukkit.Location;
 import org.bukkit.Sound;
 import org.bukkit.World;
 import org.bukkit.command.Command;
-import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 
-import itzdavidvzla.insanecommands.InsaneCommands;
+import me.itzdavidvzla.insanecommands.InsaneCommands;
 
-public class CommandSpawn implements CommandExecutor {
-	
+public class CommandSetWarp {
+
 	private InsaneCommands plugin;
-	public CommandSpawn(InsaneCommands plugin) {
+	public CommandSetWarp(InsaneCommands plugin) {
 		this.plugin = plugin;
 	}
-  
-public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+	
+	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
     	if (!(sender instanceof Player)) {
     	Bukkit.getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', "&8[&cInsane&4Commands&8] &7comando no puede ser ejecutable desde la consola!"));
       	return false;
     } 
     Player player = (Player)sender;
-    if(player.hasPermission("ic.spawn")) {
+    if(player.hasPermission("ic.setwarp")) {
     	if(args.length == 0) {
     		FileConfiguration messages = plugin.getMessages();
     		FileConfiguration warps_and_spawn = plugin.getWarps();

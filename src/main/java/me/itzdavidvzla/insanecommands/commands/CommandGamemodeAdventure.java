@@ -1,4 +1,4 @@
-package itzdavidvzla.insanecommands.commands;
+package me.itzdavidvzla.insanecommands.commands;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;

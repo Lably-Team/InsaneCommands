@@ -1,4 +1,4 @@
-package itzdavidvzla.insanecommands.commands;
+package me.itzdavidvzla.insanecommands.commands;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -9,7 +9,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 
-import itzdavidvzla.insanecommands.InsaneCommands;
+import me.itzdavidvzla.insanecommands.InsaneCommands;
 
 public class CommandHeal implements CommandExecutor {
   
@@ -42,7 +42,7 @@ public class CommandHeal implements CommandExecutor {
 				} 
 				player.setHealth(20);
 				player.setFoodLevel(20);
-				player.sendMessage(ChatColor.translateAlternateColorCodes('&', "&8[&cInsane&4Commands&8] &7Alimentación de " +args[0]+ " &cRegenerada&8."));
+				player.sendMessage(ChatColor.translateAlternateColorCodes('&', "&8[&cInsane&4Commands&8] &7Alimentaciï¿½n de " +args[0]+ " &cRegenerada&8."));
 			
 		}else{
 			FileConfiguration messages = plugin.getMessages();

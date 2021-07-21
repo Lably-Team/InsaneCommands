@@ -1,4 +1,4 @@
-package itzdavidvzla.insanecommands;
+package me.itzdavidvzla.insanecommands;
 
 import net.minecraft.server.v1_8_R3.IChatBaseComponent;
 import net.minecraft.server.v1_8_R3.Packet;

@@ -1,6 +1,6 @@
 name: InsaneCommands
 version: ${project.version}
-main: itzdavidvzla.insanecommands.InsaneCommands
+main: me.itzdavidvzla.insanecommands.InsaneCommands
 
 commands:
   ic:

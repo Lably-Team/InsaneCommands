@@ -1,4 +1,4 @@
-package itzdavidvzla.insanecommands.commands;
+package me.itzdavidvzla.insanecommands.commands;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -10,26 +10,26 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 
-import itzdavidvzla.insanecommands.InsaneCommands;
+import me.itzdavidvzla.insanecommands.InsaneCommands;
 
-public class CommandGamemodeCreative implements CommandExecutor {
-	
+public class CommandGamemodeSurvival implements CommandExecutor {
+  
 	private InsaneCommands plugin;
-	public CommandGamemodeCreative(InsaneCommands plugin){
+	public CommandGamemodeSurvival(InsaneCommands plugin){
 		this.plugin = plugin;
 	}
 	
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-		if(!(sender instanceof Player)) {
+		if(!(sender instanceof Player)){
 			Bukkit.getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', "&8[&cInsane&4Commands&8] &7This command not be executed from console"));
         	return false;
 		}
 		Player player = (Player)sender;
 		FileConfiguration messages = plugin.getMessages();
-		if(player.hasPermission("ic.gamemode")) {
+		if(player.hasPermission("ic.gamemode")){
 			if(args.length == 0){
-				player.setGameMode(GameMode.CREATIVE);
-				player.sendMessage(ChatColor.translateAlternateColorCodes('&', messages.getString("Messages.gamemode_creative")));
+				player.setGameMode(GameMode.SURVIVAL);
+				player.sendMessage(ChatColor.translateAlternateColorCodes('&', messages.getString("Messages.gamemode_survival")));
 				return true;
 			} 
 			if(args.length == 1){
@@ -39,7 +39,7 @@ public class CommandGamemodeCreative implements CommandExecutor {
 					player.playSound(player.getLocation(), Sound.ANVIL_USE, 1.0F, 1.0F);
 					return true;
 				} 
-				player.setGameMode(GameMode.CREATIVE);
+				player.setGameMode(GameMode.SURVIVAL);
 				player.sendMessage(ChatColor.translateAlternateColorCodes('&', "&8[&cInsane&4Commands&8] &7Modo de Juego de " + args[0] + " &7establecido a &ccreativo&8."));
 			}else{
   	  			player.sendMessage(ChatColor.translateAlternateColorCodes('&', messages.getString("Messages.unknown_command")));
@@ -48,7 +48,7 @@ public class CommandGamemodeCreative implements CommandExecutor {
     		}else{
     			player.sendMessage(ChatColor.translateAlternateColorCodes('&', messages.getString("Messages.no_permission")));
     			player.playSound(player.getLocation(), Sound.ANVIL_USE, 1.0F, 1.0F);
-    		}	 
+    		}
 		return false;
 	}
 }

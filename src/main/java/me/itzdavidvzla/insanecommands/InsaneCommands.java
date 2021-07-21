@@ -1,4 +1,4 @@
-package itzdavidvzla.insanecommands;
+package me.itzdavidvzla.insanecommands;
 
 import itzdavidvzla.insanecommands.commands.CommandBroadcast;
 import itzdavidvzla.insanecommands.commands.CommandFeed;

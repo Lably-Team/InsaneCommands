@@ -1,4 +1,4 @@
-package itzdavidvzla.insanecommands.listeners;
+package me.itzdavidvzla.insanecommands.listeners;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -8,7 +8,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerQuitEvent;
 
-import itzdavidvzla.insanecommands.InsaneCommands;
+import me.itzdavidvzla.insanecommands.InsaneCommands;
 
 public class QuitListener implements Listener{
 	

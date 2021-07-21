@@ -1,4 +1,4 @@
-package itzdavidvzla.insanecommands.commands;
+package me.itzdavidvzla.insanecommands.commands;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -9,7 +9,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 
-import itzdavidvzla.insanecommands.InsaneCommands;
+import me.itzdavidvzla.insanecommands.InsaneCommands;
 
 public class CommandFly implements CommandExecutor {
 	

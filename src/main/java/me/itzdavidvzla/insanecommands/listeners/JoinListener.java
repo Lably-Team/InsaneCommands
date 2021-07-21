@@ -1,6 +1,6 @@
-package itzdavidvzla.insanecommands.listeners;
+package me.itzdavidvzla.insanecommands.listeners;
 
-import itzdavidvzla.insanecommands.InsaneCommands;
+import me.itzdavidvzla.insanecommands.InsaneCommands;
 import java.util.List;
 
 import org.bukkit.Bukkit;
