@@ -6,12 +6,12 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.file.FileConfiguration;
-
 import me.itzdavidvzla.insanecommands.InsaneCommands;
 
 public class CommandBroadcast implements CommandExecutor {
 	
 	private final InsaneCommands plugin;
+
   	public CommandBroadcast(InsaneCommands plugin){
   		this.plugin = plugin;
   }

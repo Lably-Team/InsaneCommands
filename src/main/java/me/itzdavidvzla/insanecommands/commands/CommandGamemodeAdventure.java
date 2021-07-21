@@ -9,14 +9,12 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
-
 import com.mysql.jdbc.Messages;
-
-import itzdavidvzla.insanecommands.InsaneCommands;
+import me.itzdavidvzla.insanecommands.InsaneCommands;
 
 public class CommandGamemodeAdventure implements CommandExecutor {
   
-	private InsaneCommands plugin;
+	private final InsaneCommands plugin;
 	public CommandGamemodeAdventure(InsaneCommands plugin){
 		this.plugin = plugin;
 	}

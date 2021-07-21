@@ -1,18 +1,18 @@
 package me.itzdavidvzla.insanecommands;
 
-import itzdavidvzla.insanecommands.commands.CommandBroadcast;
-import itzdavidvzla.insanecommands.commands.CommandFeed;
-import itzdavidvzla.insanecommands.commands.CommandFly;
-import itzdavidvzla.insanecommands.commands.CommandGamemodeAdventure;
-import itzdavidvzla.insanecommands.commands.CommandGamemodeCreative;
-import itzdavidvzla.insanecommands.commands.CommandGamemodeSpectator;
-import itzdavidvzla.insanecommands.commands.CommandGamemodeSurvival;
-import itzdavidvzla.insanecommands.commands.CommandHeal;
-import itzdavidvzla.insanecommands.commands.CommandSetSpawn;
-import itzdavidvzla.insanecommands.commands.CommandSpawn;
-import itzdavidvzla.insanecommands.listeners.ChatListener;
-import itzdavidvzla.insanecommands.listeners.JoinListener;
-import itzdavidvzla.insanecommands.listeners.QuitListener;
+import me.itzdavidvzla.insanecommands.commands.CommandBroadcast;
+import me.itzdavidvzla.insanecommands.commands.CommandFeed;
+import me.itzdavidvzla.insanecommands.commands.CommandFly;
+import me.itzdavidvzla.insanecommands.commands.CommandGamemodeAdventure;
+import me.itzdavidvzla.insanecommands.commands.CommandGamemodeCreative;
+import me.itzdavidvzla.insanecommands.commands.CommandGamemodeSpectator;
+import me.itzdavidvzla.insanecommands.commands.CommandGamemodeSurvival;
+import me.itzdavidvzla.insanecommands.commands.CommandHeal;
+import me.itzdavidvzla.insanecommands.commands.CommandSetSpawn;
+import me.itzdavidvzla.insanecommands.commands.CommandSpawn;
+import me.itzdavidvzla.insanecommands.listeners.ChatListener;
+import me.itzdavidvzla.insanecommands.listeners.JoinListener;
+import me.itzdavidvzla.insanecommands.listeners.QuitListener;
 
 import java.io.File;
 import java.io.IOException;
@@ -21,12 +21,8 @@ import java.io.Reader;
 import java.io.UnsupportedEncodingException;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
-import org.bukkit.command.CommandExecutor;
-import org.bukkit.configuration.Configuration;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
-import org.bukkit.event.Listener;
-import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.PluginDescriptionFile;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -37,7 +33,7 @@ public class InsaneCommands extends JavaPlugin{
 	private FileConfiguration warps = null;
 	private File warpsFile = null;
 	private String rutaConfig;
-	private PluginDescriptionFile pdffile = getDescription();
+	private final PluginDescriptionFile pdffile = getDescription();
 	public String name = pdffile.getName();
 	public String version = pdffile.getVersion();
   

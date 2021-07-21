@@ -13,7 +13,7 @@ import me.itzdavidvzla.insanecommands.InsaneCommands;
 
 public class CommandFeed implements CommandExecutor{
 	
-	private InsaneCommands plugin;
+	private final InsaneCommands plugin;
   	public CommandFeed(InsaneCommands plugin){
   		this.plugin = plugin;
   }

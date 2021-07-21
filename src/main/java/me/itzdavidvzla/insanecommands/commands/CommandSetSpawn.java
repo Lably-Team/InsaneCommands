@@ -14,7 +14,7 @@ import me.itzdavidvzla.insanecommands.InsaneCommands;
 
 public class CommandSetSpawn implements CommandExecutor{
 
-	private InsaneCommands plugin;
+	private final InsaneCommands plugin;
 	public CommandSetSpawn(InsaneCommands plugin){
 		this.plugin = plugin;
 	}

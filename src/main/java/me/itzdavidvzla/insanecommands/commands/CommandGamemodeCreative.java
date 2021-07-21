@@ -14,7 +14,7 @@ import me.itzdavidvzla.insanecommands.InsaneCommands;
 
 public class CommandGamemodeCreative implements CommandExecutor {
 	
-	private InsaneCommands plugin;
+	private final InsaneCommands plugin;
 	public CommandGamemodeCreative(InsaneCommands plugin){
 		this.plugin = plugin;
 	}

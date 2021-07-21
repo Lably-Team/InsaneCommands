@@ -10,12 +10,11 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
-
 import me.itzdavidvzla.insanecommands.InsaneCommands;
 
 public class CommandSpawn implements CommandExecutor {
 	
-	private InsaneCommands plugin;
+	private final InsaneCommands plugin;
 	public CommandSpawn(InsaneCommands plugin) {
 		this.plugin = plugin;
 	}

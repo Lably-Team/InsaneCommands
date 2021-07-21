@@ -1,7 +1,6 @@
 package me.itzdavidvzla.insanecommands;
 
 import net.minecraft.server.v1_8_R3.IChatBaseComponent;
-import net.minecraft.server.v1_8_R3.Packet;
 import net.minecraft.server.v1_8_R3.PacketPlayOutTitle;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -15,7 +14,7 @@ import org.bukkit.entity.Player;
 
 public class CommandMain implements CommandExecutor {
 
-	private InsaneCommands plugin;
+	private final InsaneCommands plugin;
   
 	public CommandMain(InsaneCommands plugin){
 		this.plugin = plugin;

@@ -13,7 +13,7 @@ import me.itzdavidvzla.insanecommands.InsaneCommands;
 
 public class CommandHeal implements CommandExecutor {
   
-	private InsaneCommands plugin;
+	private final InsaneCommands plugin;
   	public CommandHeal(InsaneCommands plugin){
   		this.plugin = plugin;
   }
