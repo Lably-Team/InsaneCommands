@@ -20,9 +20,8 @@ public class MainCommand implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         Bukkit.getConsoleSender().sendMessage(TextColor.colorized("Messages.help_lore"));
         return true;
-
-        }
     }
+}
 
 
 
