@@ -7,20 +7,24 @@ import me.itzdavidvzla.insanecommands.manager.FileManager;
 public class FilesLoader implements Loader {
 
     private final InsaneCommands plugin;
-    private FileManager configFile;
+    private FileManager config;
+    private FileManager messages;
 
     public FilesLoader(InsaneCommands plugin){
         this.plugin = plugin;
     }
     @Override
     public void load() {
-        // config.yml file
-        configFile = new FileManager(plugin, "config.yml");
+        config = new FileManager(plugin, "config.yml");
+        messages = new FileManager(plugin, "messages.yml");
 
     }
 
+    public FileManager getConfig() {
+        return config;
+    }
 
-    public FileManager getConfigFile() {
-        return configFile;
+    public FileManager getMessages() {
+        return messages;
     }
 }
