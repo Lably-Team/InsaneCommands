@@ -9,6 +9,7 @@ public class FilesLoader implements Loader {
     private final InsaneCommands plugin;
     private FileManager config;
     private FileManager messages;
+    private FileManager warps_and_spawn;
 
     public FilesLoader(InsaneCommands plugin){
         this.plugin = plugin;
@@ -17,6 +18,7 @@ public class FilesLoader implements Loader {
     public void load() {
         config = new FileManager(plugin, "config.yml");
         messages = new FileManager(plugin, "messages.yml");
+        warps_and_spawn = new FileManager(plugin, "warps_and_spawn.yml");
 
     }
 
@@ -26,5 +28,9 @@ public class FilesLoader implements Loader {
 
     public FileManager getMessages() {
         return messages;
+    }
+
+    public FileManager getWarps() {
+        return warps_and_spawn;
     }
 }
