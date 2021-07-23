@@ -26,9 +26,7 @@ public class FilesLoader implements Loader {
 
     public FileManager getConfig() { return config; }
 
-    public FileManager getMessages() {
-        return messages;
-    }
+    public FileManager getMessages() { return messages; }
 
     public FileManager getWarps() { return warps_and_spawn; }
 
