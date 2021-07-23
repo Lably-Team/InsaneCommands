@@ -1,21 +1,21 @@
 package me.itzdavidvzla.insanecommands;
 
+import me.itzdavidvzla.insanecommands.utils.TextColor;
 import org.bukkit.plugin.java.JavaPlugin;
-import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
 
 public final class InsaneCommands extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        Bukkit.getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', "&8[&cInsaneCommands&8] &7Plugin &aenabled"));
         PluginCore pluginCore = new PluginCore(this);
+        pluginCore.init();
+        getLogger().info(TextColor.colorized("&8[&cInsaneCommands&8] &7Plugin &aenabled"));
 
     }
 
     @Override
     public void onDisable() {
-        Bukkit.getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', "&8[&cInsaneCommands&8] &7Plugin &cdisabled"));
+        getLogger().info(TextColor.colorized("&8[&cInsaneCommands&8] &7Plugin &cdisabled"));
         // Plugin shutdown logic
     }
 }
