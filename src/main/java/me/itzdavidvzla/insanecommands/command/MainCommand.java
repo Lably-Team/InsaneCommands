@@ -5,11 +5,11 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 
-public class DefaultCommand implements CommandExecutor{
+public class MainCommand implements CommandExecutor{
 
     private PluginCore pluginCore;
 
-    public DefaultCommand(PluginCore pluginCore){
+    public MainCommand(PluginCore pluginCore){
         this.pluginCore = pluginCore;
     }
 
