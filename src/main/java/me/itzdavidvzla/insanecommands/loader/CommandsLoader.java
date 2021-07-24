@@ -2,7 +2,7 @@ package me.itzdavidvzla.insanecommands.loader;
 
 import me.itzdavidvzla.insanecommands.PluginCore;
 import me.itzdavidvzla.insanecommands.api.Loader;
-import me.itzdavidvzla.insanecommands.command.MainCommand;
+import me.itzdavidvzla.insanecommands.command.CommandFeed;
 import me.itzdavidvzla.insanecommands.command.builder.ExecutorBuilder;
 import org.bukkit.Bukkit;
 
@@ -16,8 +16,9 @@ public class CommandsLoader implements Loader {
 
     @Override
     public void load() {
-        registerCommands(
-                new ExecutorBuilder("defaultcommand", new MainCommand(pluginCore)));
+        registerCommands();
+                new ExecutorBuilder("feed", new CommandFeed(pluginCore));
+
     }
 
     public void registerCommands(ExecutorBuilder... executorBuilders){

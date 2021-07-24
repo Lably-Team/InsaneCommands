@@ -25,3 +25,5 @@ commands:
     description: Comando de Spawn de InsaneCommands
   setspawn:
     description: Comando de SetSpawn de InsaneCommands
+  defaultcommand:
+    description: test command
