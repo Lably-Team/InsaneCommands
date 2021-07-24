@@ -19,14 +19,14 @@ public class CommandFeed implements CommandExecutor {
     }
 
     @Override
-    public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        FileConfiguration messages = pluginCore.getFilesLoader().getMessages();
+    public boolean onCommand(CommandSender sender, Command command, String label, String[] args){
         if (!(sender instanceof Player)) {
             Bukkit.getConsoleSender().sendMessage(TextColor.colorized("&8[&cInsane&4Commands&8] &7This command not be executed from console"));
             return false;
         }
         Player p = (Player) sender;
         if(!p.hasPermission("ic.feed")) {
+            FileConfiguration messages = pluginCore.getFilesLoader().getMessages();
             p.sendMessage(prefix + TextColor.colorized("Messages.no_permission"));
             p.playSound(p.getLocation(), Sound.ANVIL_LAND, 1, 1);
             return true;
