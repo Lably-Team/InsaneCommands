@@ -3,6 +3,7 @@ package me.itzdavidvzla.insanecommands.loader;
 import me.itzdavidvzla.insanecommands.InsaneCommands;
 import me.itzdavidvzla.insanecommands.api.Loader;
 import me.itzdavidvzla.insanecommands.manager.FileManager;
+import org.bukkit.configuration.file.FileConfiguration;
 
 public class FilesLoader implements Loader {
 
@@ -13,9 +14,10 @@ public class FilesLoader implements Loader {
     private FileManager sounds;
     private FileManager joinAndLeave;
 
-    public FilesLoader(InsaneCommands plugin){
+    public FilesLoader(InsaneCommands plugin) {
         this.plugin = plugin;
     }
+
     @Override
     public void load() {
         config = new FileManager(plugin, "config.yml");
@@ -25,6 +27,7 @@ public class FilesLoader implements Loader {
         joinAndLeave = new FileManager(plugin, "join_and_leave.yml");
 
     }
+
 
     public FileManager getConfig() { return config; }
 
