@@ -1,24 +1,63 @@
 package me.itzdavidvzla.insanecommands.command;
 
 import me.itzdavidvzla.insanecommands.PluginCore;
+import me.itzdavidvzla.insanecommands.manager.FileManager;
 import me.itzdavidvzla.insanecommands.utils.TextColor;
-import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Player;
 
 public class MainCommand implements CommandExecutor {
 
-    private PluginCore pluginCore;
+    private final PluginCore pluginCore;
+    private final FileManager config;
+    private final FileManager messages;
+    private final FileManager sound;
+    private final FileManager joinFile;
+    private final FileManager spawnFile;
 
     public MainCommand(PluginCore pluginCore) {
         this.pluginCore = pluginCore;
+        this.config = pluginCore.getFilesLoader().getConfig();
+        this.joinFile = pluginCore.getFilesLoader().getJoinLeave();
+        this.sound = pluginCore.getFilesLoader().getSounds();
+        this.messages = pluginCore.getFilesLoader().getMessages();
+        this.spawnFile = pluginCore.getFilesLoader().getWarpsSpawn();
     }
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        Bukkit.getConsoleSender().sendMessage(TextColor.colorized("Messages.help_lore"));
+        String prefix = messages.getString("Messages.prefix");
+
+        if(!(sender.hasPermission("ic.general.command"))) {
+            sender.sendMessage(prefix + messages.getString("Messages.no_permission"));
+            return true;
+        }
+
+        if(!(args.length > 0)) {
+            sender.sendMessage(prefix + messages.getString("Messages.help_command"));
+            return true;
+        }
+
+        switch (args[0].toLowerCase()){
+            case "about":
+                sender.sendMessage(prefix + TextColor.colorized("&8- &cVersion: &6" + pluginCore.getPlugin().getDescription().getVersion()));
+                sender.sendMessage(TextColor.colorized("&cAuthor: &c" + pluginCore.getPlugin().getDescription().getAuthors()));
+                break;
+            case "reload":
+                config.reload();
+                messages.reload();
+                sound.reload();
+                joinFile.reload();
+                spawnFile.reload();
+                sender.sendMessage(prefix + messages.getString("Messages.plugin_reload"));
+                break;
+            default:
+                for (String line : messages.getStringList("Messages.help_lore")) {
+                    sender.sendMessage(line);
+                }
+                break;
+        }
         return true;
     }
 }
