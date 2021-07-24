@@ -4,8 +4,8 @@ import org.bukkit.ChatColor;
 
 public class TextColor {
 
-    public static String colorized(String path) {
-        return ChatColor.translateAlternateColorCodes('&', path);
+    public static String colorized(String text) {
+        return ChatColor.translateAlternateColorCodes('&', text);
     }
 
 }
