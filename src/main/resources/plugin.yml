@@ -3,10 +3,17 @@ version: ${project.version}
 main: me.itzdavidvzla.insanecommands.InsaneCommands
 
 commands:
-  ic:
-    description: Comando de Administrador de InsaneCommands
-  bc:
-    description: Comando de Anuncios de InsaneCommands
+  insanecommands:
+    description: General command of InsaneCommands
+    aliases:
+      - ic
+      - icmd
+  broadcast:
+    description: Global message or alert of InsaneCommands
+    aliases:
+      - bc
+      - alert
+      - notify
   fly:
     description: Comando de Vuelo de InsaneCommands
   feed:
