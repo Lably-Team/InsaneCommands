@@ -1,7 +1,8 @@
 name: InsaneCommands
 version: ${project.version}
 main: me.itzdavidvzla.insanecommands.InsaneCommands
-
+author: ItzDavidVZLA
+website: https://github.com/Lably-Team
 commands:
   insanecommands:
     description: General command of InsaneCommands

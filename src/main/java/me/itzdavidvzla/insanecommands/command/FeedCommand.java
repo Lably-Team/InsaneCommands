@@ -8,7 +8,6 @@ import org.bukkit.Sound;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
-import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 
 public class FeedCommand implements CommandExecutor {
@@ -22,10 +21,10 @@ public class FeedCommand implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args){
         FileManager messages = pluginCore.getFilesLoader().getMessages();
 
-        String prefix = messages.getString("Messages.prefix");
+        String prefix = messages.getString( "Messages.prefix");
 
         if (!(sender instanceof Player)) {
-            Bukkit.getConsoleSender().sendMessage(TextColor.colorized("&8[&cInsane&4Commands&8] &7This command not be executed from console"));
+            sender.sendMessage(TextColor.colorized("&8[&cInsane&4Commands&8] &7This command not be executed from console"));
             return true;
         }
 

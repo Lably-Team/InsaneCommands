@@ -1,4 +1,8 @@
 Sounds:
+  error:
+    sound: ANVIL_LAND
+    vol: 10
+    pitch: 5
   broadcast:
     sound: EXPLODE
     vol: 10

@@ -1,4 +1,4 @@
-package me.itzdavidvzla.insanecommands.command;
+package me.itzdavidvzla.insanecommands.command.spawn;
 
 import me.itzdavidvzla.insanecommands.PluginCore;
 import me.itzdavidvzla.insanecommands.manager.FileManager;
@@ -10,18 +10,19 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-public class BroadcastCommand implements CommandExecutor {
+public class SetSpawnCommand implements CommandExecutor {
 
     private final PluginCore pluginCore;
 
-    public BroadcastCommand(PluginCore pluginCore) {
+    public SetSpawnCommand(PluginCore pluginCore) {
         this.pluginCore = pluginCore;
     }
 
     @Override
-    public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+    public boolean onCommand(CommandSender sender, Command command, String s, String[] strings) {
         FileManager messages = pluginCore.getFilesLoader().getMessages();
         FileManager sound = pluginCore.getFilesLoader().getSounds();
+        FileManager spawn = pluginCore.getFilesLoader().getSpawn();
         String prefix = messages.getString("Messages.prefix");
 
         if (!(sender instanceof Player)) {
@@ -31,7 +32,7 @@ public class BroadcastCommand implements CommandExecutor {
 
         Player player = (Player) sender;
 
-        if(!(player.hasPermission("ic.broadcast.command"))) {
+        if(!(player.hasPermission("ic.setspawn.command"))) {
             player.sendMessage(prefix + messages.getString("Messages.no_permission"));
             player.playSound(
                     player.getLocation(),
@@ -43,25 +44,8 @@ public class BroadcastCommand implements CommandExecutor {
             return true;
         }
 
-        if(!(args.length > 0)) {
-            player.sendMessage(messages.getString("Messages.help_command"));
-            return true;
-        }
 
-        StringBuilder stringBuilder = new StringBuilder();
 
-        int i = 0;
-        while (i < args.length) {
-            stringBuilder.append(' ').append(args[i]);
-            ++i;
-        }
-        Bukkit.broadcastMessage(messages.getString("Messages.broadcast") + TextColor.colorized(stringBuilder.toString()));
-
-        Bukkit.getOnlinePlayers().forEach(online -> online.playSound(
-                online.getLocation(),
-                Sound.valueOf(sound.getString("Sounds.broadcast.sound")),
-                (float) sound.getDouble("Sounds.broadcast.vol"),
-                (float) sound.getDouble("Sounds.broadcast.pitch")));
 
         return true;
     }
