@@ -33,6 +33,13 @@ public class BroadcastCommand implements CommandExecutor {
 
         if(!(player.hasPermission("ic.broadcast.command"))) {
             player.sendMessage(prefix + messages.getString("Messages.no_permission"));
+            player.playSound(
+                    player.getLocation(),
+                    Sound.valueOf(sound.getString("Sounds.error.sound")),
+                    (float) sound.getDouble("Sounds.error.vol"),
+                    (float) sound.getDouble("Sounds.error.pitch")
+
+            );
             return true;
         }
 
