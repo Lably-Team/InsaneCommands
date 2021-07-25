@@ -4,6 +4,7 @@ import me.itzdavidvzla.insanecommands.InsaneCommands;
 import me.itzdavidvzla.insanecommands.PluginCore;
 import me.itzdavidvzla.insanecommands.api.Loader;
 import me.itzdavidvzla.insanecommands.listener.PlayerJoinListener;
+import me.itzdavidvzla.insanecommands.listener.PlayerQuitListener;
 import org.bukkit.Bukkit;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.PluginManager;
@@ -19,8 +20,7 @@ public class ListenersLoader implements Loader {
 
     @Override
     public void load() {
-        registerListeners(
-                new PlayerJoinListener(pluginCore)
+        registerListeners(new PlayerJoinListener(pluginCore)
         );
     }
 
