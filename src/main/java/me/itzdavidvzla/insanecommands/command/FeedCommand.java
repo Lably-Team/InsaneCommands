@@ -19,9 +19,9 @@ public class FeedCommand implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args){
-        FileConfiguration messages = pluginCore.getFilesLoader().getMessages();
+        FileManager messages = pluginCore.getFilesLoader().getMessages();
 
-        String prefix = messages.getString( "Messages.prefix");
+        String prefix = messages.getString("Messages.prefix");
 
         if (!(sender instanceof Player)) {
             Bukkit.getConsoleSender().sendMessage(TextColor.colorized("&8[&cInsane&4Commands&8] &7This command not be executed from console"));
