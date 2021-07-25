@@ -1,6 +1,7 @@
 package me.itzdavidvzla.insanecommands.command;
 
 import me.itzdavidvzla.insanecommands.PluginCore;
+import me.itzdavidvzla.insanecommands.manager.FileManager;
 import me.itzdavidvzla.insanecommands.utils.TextColor;
 import org.bukkit.Bukkit;
 import org.bukkit.Sound;

@@ -10,7 +10,8 @@ public class FilesLoader implements Loader {
     private final InsaneCommands plugin;
     private FileManager config;
     private FileManager messages;
-    private FileManager warpsAndSpawn;
+    private FileManager warps;
+    private FileManager spawn;
     private FileManager sounds;
     private FileManager joinAndLeave;
 
@@ -22,7 +23,8 @@ public class FilesLoader implements Loader {
     public void load() {
         config = new FileManager(plugin, "config.yml");
         messages = new FileManager(plugin, "messages.yml");
-        warpsAndSpawn = new FileManager(plugin, "warps_and_spawn.yml");
+        warps = new FileManager(plugin, "warps.yml");
+        spawn = new FileManager(plugin, "spawn.yml");
         sounds = new FileManager(plugin, "sounds.yml");
         joinAndLeave = new FileManager(plugin, "join_and_leave.yml");
 
@@ -33,10 +35,12 @@ public class FilesLoader implements Loader {
 
     public FileManager getMessages() { return messages; }
 
-    public FileManager getWarpsSpawn() { return warpsAndSpawn; }
+    public FileManager getWarps() { return warps; }
 
     public FileManager getSounds() { return sounds; }
 
     public FileManager getJoinLeave() { return joinAndLeave; }
+
+    public FileManager getSpawn() { return spawn; }
 
 }
