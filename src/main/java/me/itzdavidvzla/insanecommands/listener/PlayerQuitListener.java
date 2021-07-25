@@ -18,7 +18,7 @@ public class PlayerQuitListener {
 
     @EventHandler
     public void onQuitMessage(PlayerQuitEvent event){
-        if (!config.getBoolean("join-message")) return;
+        if (!config.getBoolean("leave-message")) return;
 
         event.setQuitMessage(quitFile.getString("message_leave")
                 .replace("%ic_player%", event.getPlayer().getName()));

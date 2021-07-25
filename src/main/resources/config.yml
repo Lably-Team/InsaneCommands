@@ -1,2 +1,3 @@
 Config:
   join-message: true
+  leave-message: true

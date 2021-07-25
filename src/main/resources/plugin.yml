@@ -23,12 +23,32 @@ commands:
     description: Comando de Curacion de InsaneCommands
   gmc:
     description: Comando de Modo de Juego de InsaneCommands
+    aliases:
+      - gamemodecreative
+      - gmcreative
+      - gamemodec
+      - gamemode creative
   gms:
     description: Comando de Modo de Juego de InsaneCommands
-  gme:
+    aliases:
+      - gamemodesurvival
+      - gmsurvival
+      - gamemodes
+      - gamemode survival
+  gmsp:
     description: Comando de Modo de Juego de InsaneCommands
+    aliases:
+      - gamemodespectator
+      - gmspectator
+      - gamemodesp
+      - gamemode spectator
   gma:
     description: Comando de Modo de Juego de InsaneCommands
+    aliases:
+      - gamemodeadventure
+      - gmadventure
+      - gamemodea
+      - gamemode adventure
   spawn:
     description: Comando de Spawn de InsaneCommands
   setspawn:
