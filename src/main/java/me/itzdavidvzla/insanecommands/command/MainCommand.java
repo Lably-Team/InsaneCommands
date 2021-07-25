@@ -15,6 +15,7 @@ public class MainCommand implements CommandExecutor {
     private final FileManager sound;
     private final FileManager joinFile;
     private final FileManager spawnFile;
+    private final FileManager warps;
 
     public MainCommand(PluginCore pluginCore) {
         this.pluginCore = pluginCore;
@@ -22,7 +23,8 @@ public class MainCommand implements CommandExecutor {
         this.joinFile = pluginCore.getFilesLoader().getJoinLeave();
         this.sound = pluginCore.getFilesLoader().getSounds();
         this.messages = pluginCore.getFilesLoader().getMessages();
-        this.spawnFile = pluginCore.getFilesLoader().getWarpsSpawn();
+        this.spawnFile = pluginCore.getFilesLoader().getSpawn();
+        this.warps = pluginCore.getFilesLoader().getWarps();
     }
 
     @Override
@@ -50,6 +52,7 @@ public class MainCommand implements CommandExecutor {
                 sound.reload();
                 joinFile.reload();
                 spawnFile.reload();
+                warps.reload();
                 sender.sendMessage(prefix + messages.getString("Messages.plugin_reload"));
                 break;
             default:
