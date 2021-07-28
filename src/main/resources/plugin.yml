@@ -17,6 +17,9 @@ commands:
       - notify
   fly:
     description: Comando de Vuelo de InsaneCommands
+    aliases:
+      - flight
+      - flymode
   feed:
     description: Comando de Alimentacion de InsaneCommands
   heal:

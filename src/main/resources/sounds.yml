@@ -7,3 +7,11 @@ Sounds:
     sound: EXPLODE
     vol: 10
     pitch: 5
+  join:
+    sound: NOTE_PLING
+    vol: 1
+    pitch: 1
+  leave:
+    sound: NOTE_PLING
+    vol: 1
+    pitch: 1

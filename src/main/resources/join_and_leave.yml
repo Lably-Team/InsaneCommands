@@ -9,6 +9,6 @@ welcome_motd:
   - "&8&m---------------------------------"
   - "&r "
   - "        &c&l* &4&lB I E N V E N I D O &c&l*"
-  - "  &7&oBienvenido Al Servidor %player%"
+  - "  &7&oBienvenido Al Servidor %ic_player%"
   - "&r "
   - "&8&m---------------------------------"

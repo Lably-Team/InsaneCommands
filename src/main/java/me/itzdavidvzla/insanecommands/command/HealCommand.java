@@ -38,7 +38,7 @@ public class HealCommand implements CommandExecutor {
             player.setFoodLevel(20);
             player.setHealth(20);
             player.sendMessage(prefix + messages.getString("Messages.heal"));
-            player.playSound(player.getLocation(), Sound.SPLASH, 1, 1);
+            player.playSound(player.getLocation(), Sound.SPLASH2, 1, 1);
             return true;
         }
         if (!(args.length > 1)) {
