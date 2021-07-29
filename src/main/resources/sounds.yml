@@ -3,15 +3,27 @@ Sounds:
     sound: ANVIL_LAND
     vol: 10
     pitch: 5
+  no_permission:
+    sound: BLAZE_DEATH
+    vol: 10
+    pitch: 5
   broadcast:
     sound: EXPLODE
     vol: 10
     pitch: 5
+  feed:
+    sound: Eat
+    vol: 10
+    pitch: 5
+  heal:
+    sound: DRINK
+    vol: 10
+    pitch: 5
   join:
     sound: NOTE_PLING
-    vol: 1
-    pitch: 1
+    vol: 10
+    pitch: 5
   leave:
     sound: NOTE_PLING
-    vol: 1
-    pitch: 1
+    vol: 10
+    pitch: 5

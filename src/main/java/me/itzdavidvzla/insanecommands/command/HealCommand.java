@@ -12,9 +12,12 @@ import org.bukkit.entity.Player;
 
 public class HealCommand implements CommandExecutor {
     private final PluginCore pluginCore;
+    private FileManager sound;
 
     public HealCommand(PluginCore pluginCore) {
         this.pluginCore = pluginCore;
+        this.sound = pluginCore.getFilesLoader().getSounds();
+
     }
 
     @Override
@@ -31,19 +34,30 @@ public class HealCommand implements CommandExecutor {
         Player player = (Player) sender;
         if (!player.hasPermission("ic.heal")) {
             player.sendMessage(prefix + TextColor.colorized("Messages.no_permission"));
-            player.playSound(player.getLocation(), Sound.ANVIL_LAND, 1, 1);
+            player.playSound(player.getLocation(),
+                    Sound.valueOf(sound.getString("Sounds.error.sound")),
+                    (float) sound.getDouble("Sounds.error.vol"),
+                    (float) sound.getDouble("Sounds.error.pitch"));
+
             return true;
         }
         if (!(args.length > 0)) {
             player.setFoodLevel(20);
             player.setHealth(20);
             player.sendMessage(prefix + messages.getString("Messages.heal"));
-            player.playSound(player.getLocation(), Sound.SPLASH2, 1, 1);
+            player.playSound(player.getLocation(),
+                    Sound.valueOf(sound.getString("Sounds.heal.sound")),
+                    (float) sound.getDouble("Sounds.heal.vol"),
+                    (float) sound.getDouble("Sounds.heal.pitch"));
+
             return true;
         }
         if (!(args.length > 1)) {
             player.sendMessage(prefix + messages.getString("Messages.unknown_command"));
-            player.playSound(player.getLocation(), Sound.ANVIL_LAND, 1, 1);
+            player.playSound(player.getLocation(),
+                    Sound.valueOf(sound.getString("Sounds.unknown_command.sound")),
+                    (float) sound.getDouble("Sounds.unknown_command.vol"),
+                    (float) sound.getDouble("Sounds.unknown_command.pitch"));
             return true;
         }
         return false;

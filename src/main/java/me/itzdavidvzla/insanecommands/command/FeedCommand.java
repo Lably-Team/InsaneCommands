@@ -12,16 +12,19 @@ import org.bukkit.entity.Player;
 
 public class FeedCommand implements CommandExecutor {
     private final PluginCore pluginCore;
+    private FileManager sound;
 
     public FeedCommand(PluginCore pluginCore) {
         this.pluginCore = pluginCore;
+        this.sound = pluginCore.getFilesLoader().getSounds();
+
     }
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args){
         FileManager messages = pluginCore.getFilesLoader().getMessages();
 
-        String prefix = messages.getString( "Messages.prefix");
+        String prefix = messages.getString("Messages.prefix");
 
         if (!(sender instanceof Player)) {
             sender.sendMessage(TextColor.colorized("&8[&cInsane&4Commands&8] &7This command not be executed from console"));
@@ -31,18 +34,28 @@ public class FeedCommand implements CommandExecutor {
         Player player = (Player) sender;
         if(!player.hasPermission("ic.feed")) {
             player.sendMessage(prefix + TextColor.colorized("Messages.no_permission"));
-            player.playSound(player.getLocation(), Sound.ANVIL_LAND, 1, 1);
+            player.playSound(player.getLocation(),
+                    Sound.valueOf(sound.getString("Sounds.error.sound")),
+                    (float) sound.getDouble("Sounds.error.vol"),
+                    (float) sound.getDouble("Sounds.error.pitch"));
+
             return true;
         }
         if(!(args.length > 0)) {
             player.setFoodLevel(20);
             player.sendMessage(prefix + messages.getString("Messages.feed"));
-            player.playSound(player.getLocation(), Sound.EAT, 1, 1);
+            player.playSound(player.getLocation(),
+                    Sound.valueOf(sound.getString("Sounds.feed.sound")),
+                    (float) sound.getDouble("Sounds.feed.vol"),
+                    (float) sound.getDouble("Sounds.feed.pitch"));
             return true;
         }
         if(!(args.length > 1)) {
             player.sendMessage(prefix + messages.getString("Messages.unknown_command"));
-            player.playSound(player.getLocation(), Sound.ANVIL_LAND, 1, 1);
+            player.playSound(player.getLocation(),
+                    Sound.valueOf(sound.getString("Sounds.unknown_command.sound")),
+                    (float) sound.getDouble("Sounds.unknown_command.vol"),
+                    (float) sound.getDouble("Sounds.unknown_command.pitch"));
             return true;
         }
         return false;
