@@ -12,7 +12,7 @@ Sounds:
     vol: 10
     pitch: 5
   feed:
-    sound: Eat
+    sound: EAT
     vol: 10
     pitch: 5
   heal:
