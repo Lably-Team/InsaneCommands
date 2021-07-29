@@ -3,7 +3,7 @@ Sounds:
     sound: ANVIL_LAND
     vol: 10
     pitch: 5
-  no_permission:
+  unknown_command:
     sound: BLAZE_DEATH
     vol: 10
     pitch: 5

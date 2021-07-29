@@ -43,11 +43,11 @@ public class MainCommand implements CommandExecutor {
 
         switch (args[0].toLowerCase()){
             case "about":
-                sender.sendMessage(TextColor.colorized("&7&m               &8&m"));
-                sender.sendMessage(TextColor.colorized("&7Plugin&8: &cInsane&4Commands"));
-                sender.sendMessage(TextColor.colorized("&7Version&8: &c" + pluginCore.getPlugin().getDescription().getVersion()));
-                sender.sendMessage(TextColor.colorized("&7Author&8: &c" + pluginCore.getPlugin().getDescription().getAuthors()));
-                sender.sendMessage(TextColor.colorized("&7&m               &8&m"));
+                sender.sendMessage(TextColor.colorized("&8&m                              &8&m"));
+                sender.sendMessage(TextColor.colorized("&cPlugin&8: &cInsane&4Commands"));
+                sender.sendMessage(TextColor.colorized("&cVersion&8: &c" + pluginCore.getPlugin().getDescription().getVersion()));
+                sender.sendMessage(TextColor.colorized("&cAuthor&8: &c" + pluginCore.getPlugin().getDescription().getAuthors()));
+                sender.sendMessage(TextColor.colorized("&8&m                              &8&m"));
                 break;
             case "reload":
                 config.reload();
