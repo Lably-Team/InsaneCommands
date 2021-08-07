@@ -11,6 +11,9 @@ import me.itzdavidvzla.insanecommands.command.gamemode.GamemodeAdventure;
 import me.itzdavidvzla.insanecommands.command.gamemode.GamemodeCreative;
 import me.itzdavidvzla.insanecommands.command.gamemode.GamemodeSpectator;
 import me.itzdavidvzla.insanecommands.command.gamemode.GamemodeSurvival;
+import me.itzdavidvzla.insanecommands.command.spawn.DelSpawnCommand;
+import me.itzdavidvzla.insanecommands.command.spawn.SetSpawnCommand;
+import me.itzdavidvzla.insanecommands.command.spawn.SpawnCommand;
 import org.bukkit.Bukkit;
 
 public class CommandsLoader implements Loader {
@@ -33,7 +36,10 @@ public class CommandsLoader implements Loader {
                 new ExecutorBuilder("gmc", new GamemodeCreative(pluginCore)),
                 new ExecutorBuilder("gmsp", new GamemodeSpectator(pluginCore)),
                 new ExecutorBuilder("gms", new GamemodeSurvival(pluginCore)),
-                new ExecutorBuilder("fly", new GamemodeSpectator(pluginCore))
+                new ExecutorBuilder("fly", new GamemodeSpectator(pluginCore)),
+                new ExecutorBuilder("spawn", new SpawnCommand(pluginCore)),
+                new ExecutorBuilder("setspawn", new SetSpawnCommand(pluginCore)),
+                new ExecutorBuilder("delspawn", new DelSpawnCommand(pluginCore))
         );
     }
 
