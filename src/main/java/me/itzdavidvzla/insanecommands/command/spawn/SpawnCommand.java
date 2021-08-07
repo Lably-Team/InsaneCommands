@@ -4,6 +4,7 @@ import me.itzdavidvzla.insanecommands.PluginCore;
 import me.itzdavidvzla.insanecommands.manager.FileManager;
 import me.itzdavidvzla.insanecommands.utils.TextColor;
 import org.bukkit.Bukkit;
+import org.bukkit.Location;
 import org.bukkit.Sound;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -12,16 +13,18 @@ import org.bukkit.entity.Player;
 
 public class SpawnCommand implements CommandExecutor {
 
-    private final PluginCore pluginCore;
+    private final FileManager messages;
+    private final FileManager sound;
+    private final FileManager spawn;
 
     public SpawnCommand(PluginCore pluginCore) {
-        this.pluginCore = pluginCore;
+        this.messages = pluginCore.getFilesLoader().getMessages();
+        this.sound = pluginCore.getFilesLoader().getSounds();
+        this.spawn = pluginCore.getFilesLoader().getSpawn();
     }
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String s, String[] strings) {
-        FileManager messages = pluginCore.getFilesLoader().getMessages();
-        FileManager sound = pluginCore.getFilesLoader().getSounds();
         String prefix = messages.getString("Messages.prefix");
 
         if (!(sender instanceof Player)) {
@@ -43,6 +46,22 @@ public class SpawnCommand implements CommandExecutor {
             return true;
         }
 
+        if (!spawn.contains("Spawn.world")) {
+
+            player.sendMessage(prefix + messages.getString("Messages.unknown_spawn"));
+            return true;
+        }
+
+
+        player.teleport(new Location(
+                Bukkit.getWorld(spawn.getString("Spawn.world")),
+                spawn.getDouble("Spawn.x"),
+                spawn.getDouble("Spawn.y"),
+                spawn.getDouble("Spawn.z"),
+                (float) spawn.getDouble("Spawn.yaw"),
+                (float) spawn.getDouble("Spawn.pitch")
+        ));
+        player.sendMessage(prefix + messages.getString("Messages.send_spawn"));
 
 
         return true;
