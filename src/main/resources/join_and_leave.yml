@@ -4,7 +4,7 @@ message_join: "&8[&cInsane&4Commands&8] &c%ic_player% &7has joined the game&8."
 message_leave: "&8[&cInsane&4Commands&8] &c%ic_player% &7has leave the game&8."
 
 # MOTD
-welcome_motd-module: true
+welcome_motd_module: true
 welcome_motd:
   - "&8&m---------------------------------"
   - "&r "
