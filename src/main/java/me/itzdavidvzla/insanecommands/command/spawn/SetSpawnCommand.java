@@ -12,17 +12,18 @@ import org.bukkit.entity.Player;
 
 public class SetSpawnCommand implements CommandExecutor {
 
-    private final PluginCore pluginCore;
+    private final FileManager messages;
+    private final FileManager sound;
+    private final FileManager spawn;
 
     public SetSpawnCommand(PluginCore pluginCore) {
-        this.pluginCore = pluginCore;
+        this.messages = pluginCore.getFilesLoader().getMessages();
+        this.sound = pluginCore.getFilesLoader().getSounds();
+        this.spawn = pluginCore.getFilesLoader().getSpawn();
     }
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String s, String[] strings) {
-        FileManager messages = pluginCore.getFilesLoader().getMessages();
-        FileManager sound = pluginCore.getFilesLoader().getSounds();
-        FileManager spawn = pluginCore.getFilesLoader().getSpawn();
         String prefix = messages.getString("Messages.prefix");
 
         if (!(sender instanceof Player)) {
@@ -44,8 +45,19 @@ public class SetSpawnCommand implements CommandExecutor {
             return true;
         }
 
+        if (spawn.contains("Spawn.world")) {
+            player.sendMessage(prefix + messages.getString("Messages.spawn_exist"));
+            return true;
+        }
 
-
+        spawn.set("Spawn.world", player.getLocation().getWorld().getName());
+        spawn.set("Spawn.x",  player.getLocation().getX());
+        spawn.set("Spawn.y",  player.getLocation().getY());
+        spawn.set("Spawn.z",  player.getLocation().getZ());
+        spawn.set("Spawn.yaw", (double) player.getLocation().getYaw());
+        spawn.set("Spawn.pitch", (double) player.getLocation().getPitch());
+        spawn.save();
+        player.sendMessage(prefix + messages.getString("Messages.spawn_set"));
 
         return true;
     }

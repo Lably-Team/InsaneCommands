@@ -8,13 +8,11 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 
-import java.util.ResourceBundle;
-
 public class PlayerJoinListener implements Listener {
 
     private final FileManager config;
     private final FileManager joinFile;
-    private FileManager sound;
+    private final FileManager sound;
 
     public PlayerJoinListener(PluginCore pluginCore) {
         this.config = pluginCore.getFilesLoader().getConfig();
@@ -39,7 +37,7 @@ public class PlayerJoinListener implements Listener {
 
     @EventHandler
     public void onJoinMotd(PlayerJoinEvent event) {
-        if (!joinFile.getBoolean("welcome_motd-module")) return;
+        if (!joinFile.getBoolean("welcome_motd_module")) return;
 
         for (String line : joinFile.getStringList("welcome_motd")) {
 

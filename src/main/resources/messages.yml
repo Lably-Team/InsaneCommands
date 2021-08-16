@@ -22,6 +22,8 @@ Messages:
     gamemode_survival: "&7Gamemode set to &csurvival&8."
     heal: "&cRegenerated &7Life&8."
     feed_disconnected: "&7That player is disconnected&8."
+    spawn_exist: "&cSpawn already set, please delete spawn point"
+    unknown_spawn: "&cSpawn has not been defined"
     spawn_set: "&7Spawn has been set!"
     send_spawn: "&7You has been sent to spawn point!"
     spawn_deleted: "&7Spawn has been deleted!"
