@@ -26,7 +26,7 @@ public class CommandsLoader implements Loader {
         registerCommands(
                 new ExecutorBuilder("insanecommands", new MainCommand(pluginCore)),
                 new ExecutorBuilder("broadcast", new BroadcastCommand(pluginCore)),
-                new ExecutorBuilder("fly", new GamemodeSpectator(pluginCore)),
+                new ExecutorBuilder("fly", new FlyCommand(pluginCore)),
                 new ExecutorBuilder("feed", new FeedCommand(pluginCore)),
                 new ExecutorBuilder("heal", new HealCommand(pluginCore)),
                 new ExecutorBuilder("gma", new GamemodeAdventure(pluginCore)),
