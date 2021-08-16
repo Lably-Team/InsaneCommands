@@ -2,10 +2,7 @@ package me.itzdavidvzla.insanecommands.loader;
 
 import me.itzdavidvzla.insanecommands.PluginCore;
 import me.itzdavidvzla.insanecommands.api.Loader;
-import me.itzdavidvzla.insanecommands.command.BroadcastCommand;
-import me.itzdavidvzla.insanecommands.command.FeedCommand;
-import me.itzdavidvzla.insanecommands.command.HealCommand;
-import me.itzdavidvzla.insanecommands.command.MainCommand;
+import me.itzdavidvzla.insanecommands.command.*;
 import me.itzdavidvzla.insanecommands.command.builder.ExecutorBuilder;
 import me.itzdavidvzla.insanecommands.command.gamemode.GamemodeAdventure;
 import me.itzdavidvzla.insanecommands.command.gamemode.GamemodeCreative;
