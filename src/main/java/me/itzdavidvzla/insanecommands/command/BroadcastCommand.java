@@ -1,31 +1,32 @@
 package me.itzdavidvzla.insanecommands.command;
 
+import me.itzdavidvzla.insanecommands.InsaneCommands;
 import me.itzdavidvzla.insanecommands.PluginCore;
 import me.itzdavidvzla.insanecommands.manager.FileManager;
 import me.itzdavidvzla.insanecommands.utils.TextColor;
 import org.bukkit.Bukkit;
-import org.bukkit.Sound;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+
 public class BroadcastCommand implements CommandExecutor {
 
-    private final PluginCore pluginCore;
+    private final FileManager sounds;
+    private final FileManager messages;
 
     public BroadcastCommand(PluginCore pluginCore) {
-        this.pluginCore = pluginCore;
+        this.sounds = pluginCore.getFilesLoader().getSounds();
+        this.messages = pluginCore.getFilesLoader().getMessages();
     }
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        FileManager messages = pluginCore.getFilesLoader().getMessages();
-        FileManager sound = pluginCore.getFilesLoader().getSounds();
         String prefix = messages.getString("Messages.prefix");
 
         if (!(sender instanceof Player)) {
-            Bukkit.getConsoleSender().sendMessage(TextColor.colorized("&8[&cInsane&4Commands&8] &7This command not be executed from console"));
+            sender.sendMessage(TextColor.colorized("&8[&cInsane&4Commands&8] &7This command not be executed from console"));
             return true;
         }
 
@@ -35,9 +36,9 @@ public class BroadcastCommand implements CommandExecutor {
             player.sendMessage(prefix + messages.getString("Messages.no_permission"));
             player.playSound(
                     player.getLocation(),
-                    Sound.valueOf(sound.getString("Sounds.error.sound")),
-                    (float) sound.getDouble("Sounds.error.vol"),
-                    (float) sound.getDouble("Sounds.error.pitch")
+                    sounds.getSound("Sounds.error.sound"),
+                    (float) sounds.getDouble("Sounds.error.vol"),
+                    (float) sounds.getDouble("Sounds.error.pitch")
 
             );
             return true;
@@ -59,9 +60,9 @@ public class BroadcastCommand implements CommandExecutor {
 
         Bukkit.getOnlinePlayers().forEach(online -> online.playSound(
                 online.getLocation(),
-                Sound.valueOf(sound.getString("Sounds.broadcast.sound")),
-                (float) sound.getDouble("Sounds.broadcast.vol"),
-                (float) sound.getDouble("Sounds.broadcast.pitch")));
+                sounds.getSound("Sounds.broadcast.sound"),
+                (float) sounds.getDouble("Sounds.broadcast.vol"),
+                (float) sounds.getDouble("Sounds.broadcast.pitch")));
 
         return true;
     }

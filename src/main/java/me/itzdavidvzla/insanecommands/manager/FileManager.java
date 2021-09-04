@@ -1,6 +1,7 @@
 package me.itzdavidvzla.insanecommands.manager;
 
 import org.bukkit.ChatColor;
+import org.bukkit.Sound;
 import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.Plugin;
@@ -85,5 +86,16 @@ public class FileManager extends YamlConfiguration {
         List<String> list = super.getStringList(path);
         list.replaceAll(line -> ChatColor.translateAlternateColorCodes('&', line));
         return list;
+    }
+
+    public Sound getSound(String path) {
+        try {
+            return Sound.valueOf(super.getString(path));
+        } catch (NullPointerException e) {
+            plugin.getLogger().warning(ChatColor.YELLOW + "There is an error in your config file, the sound (" +
+                    super.getString(path) + ") don''t exist, please check that it is spelled correctly " +
+                    "or that it corresponds to the version.");
+            return Sound.ANVIL_BREAK;
+        }
     }
 }

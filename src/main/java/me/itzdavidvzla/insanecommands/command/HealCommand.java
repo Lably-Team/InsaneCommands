@@ -3,7 +3,6 @@ package me.itzdavidvzla.insanecommands.command;
 import me.itzdavidvzla.insanecommands.PluginCore;
 import me.itzdavidvzla.insanecommands.manager.FileManager;
 import me.itzdavidvzla.insanecommands.utils.TextColor;
-import org.bukkit.Bukkit;
 import org.bukkit.Sound;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -12,7 +11,7 @@ import org.bukkit.entity.Player;
 
 public class HealCommand implements CommandExecutor {
     private final PluginCore pluginCore;
-    private FileManager sound;
+    private final FileManager sound;
 
     public HealCommand(PluginCore pluginCore) {
         this.pluginCore = pluginCore;
